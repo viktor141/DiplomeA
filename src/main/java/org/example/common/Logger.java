@@ -17,6 +17,8 @@ public class Logger {
     private LogLevel loggingLevel = LogLevel.INFO;
     private List<String> logs = new ArrayList<>();
 
+    private static final boolean consoleDebug = false;
+
     public enum LogLevel {
         INFO,
         DEBUG,
@@ -39,6 +41,8 @@ public class Logger {
 
         if (loggingLevel.ordinal() >= level.ordinal()) {
             if(side.equals(Side.SERVER) && level.equals(LogLevel.INFO)) {
+                System.out.println(resultLogMessage);
+            }else if(consoleDebug){
                 System.out.println(resultLogMessage);
             }
             loggingIntoLogFile(side, resultLogMessage);

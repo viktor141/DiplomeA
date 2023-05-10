@@ -54,13 +54,13 @@ public class Server {
 
         Logger.getLogger().setLogLevel(level);
 
-
+        online = true;
         start();
 
         while (!connectThread.isAlive() || !handleThread.isAlive() || !chatThread.isAlive()){
 
         }
-        online = true;
+
         Logger.getLogger().logging("Server started", Logger.LogLevel.INFO, side);
 
         if(!isTest) {
